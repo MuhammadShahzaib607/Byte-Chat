@@ -64,6 +64,7 @@ export const login = async (req, res) => {
       { expiresIn: "7d" }
     );
 
+    // update cookies settings for localhost
     res.cookie("token", token, {
       httpOnly: true,
       secure: true, // process.env.NODE_ENV === "production"
