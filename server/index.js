@@ -6,6 +6,7 @@ import mongoose from "mongoose"
 import authRoutes from "./routes/auth.js"
 import botRoutes from "./routes/bot.js"
 import cookieParser from "cookie-parser"
+import { sendRes } from "./utils/responseHandler.js"
 
 dotenv.config()
 const app = express()
