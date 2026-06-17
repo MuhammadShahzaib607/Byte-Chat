@@ -29,7 +29,9 @@ app.get("/health-check", (req, res)=> {
 
 const connectDB = async ()=> {
     try {
-       await mongoose.connect(process.env.MONGO_URI)
+       await mongoose.connect(process.env.MONGO_URI, {
+        bufferCommands: false,
+       })
        console.log("server connected to DB Successfully")
     } catch (error) {
         console.log(error.message)

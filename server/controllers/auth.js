@@ -11,13 +11,13 @@ export const signup = async (req, res) => {
       return sendRes(res, 400, false, "All fields are required");
     }
 
-    const isEmailAlreadyTaken = User.findOne({ email: email.toLowerCase() })
+    const isEmailAlreadyTaken = await User.findOne({ email: email.toLowerCase() })
 
     if (isEmailAlreadyTaken) {
       return sendRes(res, 400, false, "email already exists");
     }
 
-    const isuserNameAlreadyTaken = User.findOne({ username: username.toLowerCase() })
+    const isuserNameAlreadyTaken = await User.findOne({ username: username.toLowerCase() })
 
     if (isuserNameAlreadyTaken) {
       return sendRes(res, 400, false, "username already exists");
@@ -82,15 +82,16 @@ export const login = async (req, res) => {
 };
 
 export const validateToken = (req, res)=> {
-    return sendRes(res, 200, true, "Token is Valid", {userData: req.user})
+  const token = req.cookies?.token;
+    return sendRes(res, 200, true, "Token is Valid", {userData: req.user, token: token})
 }
 
 export const logout = async (req, res) => {
   try {
     res.clearCookie("token", {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
+      secure: true, // process.env.NODE_ENV === "production"
+      sameSite: "none", // change this into strict after completion
     });
 
     return sendRes(res, 200, true, "Logged out successfully");

@@ -149,7 +149,7 @@ export default function Signup() {
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
-                  placeholder="Enter you Passwordbytechat
+                  placeholder="Enter you Password"
                   className="w-full rounded-xl border border-zinc-800 bg-[#050507] py-2.5 pl-11 pr-11 text-[13.5px] text-zinc-200 placeholder-zinc-600 outline-none transition-all duration-200 focus:border-purple-500/50 focus:ring-4 focus:ring-purple-500/5"
                 />
                 <button
@@ -187,7 +187,7 @@ export default function Signup() {
               href="/login"
               className="font-medium text-purple-400 transition-colors hover:text-purple-300 underline-offset-4 hover:underline"
             >
-              Sign In
+              Login
             </Link>
           </p>
         </div>
