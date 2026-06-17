@@ -1,0 +1,5 @@
+1. theme hai website ki black white gray is type ki darkish tone
+2. text wagera ka color bhi aisa rkhna k like merge na hoo bg color k saath like visible hoo 
+3. normal si UI nh banana kuch alag si banao like modern bhi banao but aisa bhi na lagey k ai se banwai hai bilkul simple si nh banana
+4. text ko minimize rkhna na zyada chhota na bht zyada bara bilkul normal or professional
+5. UI bhut outclass, professional, modern, clean and fully pixel perfect responsive honi chahiye for every device bhut hi zabardast banana UI bhut zabardast
