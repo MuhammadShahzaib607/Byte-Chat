@@ -64,18 +64,11 @@ export const login = async (req, res) => {
       { expiresIn: "7d" }
     );
 
-    // update cookies settings for localhost
-    res.cookie("token", token, {
-      httpOnly: true,
-      secure: true, // process.env.NODE_ENV === "production"
-      sameSite: "none", // strict
-      maxAge: 7 * 24 * 60 * 60 * 1000,
-    });
-
     return sendRes(res, 200, true, "Login successful", {
       id: user._id,
       username: user.username,
       email: user.email,
+      token
     });
   } catch (error) {
     return sendRes(res, 500, false, error.message);
@@ -86,17 +79,3 @@ export const validateToken = (req, res)=> {
   const token = req.cookies?.token;
     return sendRes(res, 200, true, "Token is Valid", {userData: req.user, token: token})
 }
-
-export const logout = async (req, res) => {
-  try {
-    res.clearCookie("token", {
-      httpOnly: true,
-      secure: true, // process.env.NODE_ENV === "production"
-      sameSite: "none", // change this into strict after completion
-    });
-
-    return sendRes(res, 200, true, "Logged out successfully");
-  } catch (error) {
-    return sendRes(res, 500, false, error.message);
-  }
-};
