@@ -47,7 +47,6 @@ export default function Login() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
-        credentials: "include"
       });
 
       const data = await res.json();
@@ -57,10 +56,9 @@ export default function Login() {
       }
 
       triggerAlert("success", "Authentication successful! Redirecting...");
-      
-      // Setting token if your API returns one
-      if (data.token) {
-        localStorage.setItem("token", data.token);
+
+      if (data.data.token) {
+        localStorage.setItem("token", data.data.token)
       }
 
         router.push("/home"); 
@@ -116,6 +114,7 @@ export default function Login() {
                 <input
                   type="email"
                   name="email"
+                  autoComplete="off"
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="shahzaib@bytetech.com"
