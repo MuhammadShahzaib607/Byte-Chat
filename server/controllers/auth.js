@@ -23,7 +23,7 @@ export const signup = async (req, res) => {
       return sendRes(res, 400, false, "username already exists");
     }
 
-    const hashedPassword = await bcrypt.hash(password, 12);
+    const hashedPassword = await bcrypt.hash(password, 10);
 
     const newUser = new User({
       username: username.toLowerCase(),
@@ -76,6 +76,5 @@ export const login = async (req, res) => {
 };
 
 export const validateToken = (req, res)=> {
-  const token = req.cookies?.token;
-    return sendRes(res, 200, true, "Token is Valid", {userData: req.user, token: token})
+    return sendRes(res, 200, true, "Token is Valid", {userData: req.user})
 }

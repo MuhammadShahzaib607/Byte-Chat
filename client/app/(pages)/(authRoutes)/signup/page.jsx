@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiUser, FiMail, FiLock, FiEye, FiEyeOff } from "react-icons/fi";
-import CustomAlert from "../../../components/customAlert";
+import CustomAlert from "../../../components/CustomAlert";
 
 export default function Signup() {
   const router = useRouter();
@@ -56,9 +56,7 @@ export default function Signup() {
       }
 
       triggerAlert("success", "Account created successfully! Redirecting...");
-      setTimeout(() => {
         router.push("/login");
-      }, 1800);
 
     } catch (error) {
       triggerAlert("error", error.message);

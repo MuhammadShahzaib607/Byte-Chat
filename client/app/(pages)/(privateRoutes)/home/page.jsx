@@ -8,20 +8,6 @@ import axios from "axios"
 
 export default function Home() {
 
-  const validateToken = async ()=> {
-    try {
-      const base_url = process.env.NEXT_PUBLIC_BASE_URL;
-      const res = await axios.get(`${base_url}/user/validate-token`)
-      console.log(res)
-    } catch (error) {
-      console.log(error.response.data.message)
-    }
-  }
-
-  useEffect(()=> {
-validateToken()
-  }, [])
-
   return (
     <div className="relative min-h-screen bg-[#070709] font-sans selection:bg-purple-500/40 selection:text-white overflow-x-hidden">
       
