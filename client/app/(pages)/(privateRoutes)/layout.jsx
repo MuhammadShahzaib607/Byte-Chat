@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import Footer from "../../components/Footer"
 
 export default function PrivateLayout({ children }) {
   const router = useRouter();
@@ -50,5 +51,8 @@ export default function PrivateLayout({ children }) {
     );
   }
 
-  return <>{children}</>;
+  return <>
+  {children}
+  <Footer />
+  </>;
 }

@@ -38,11 +38,15 @@ app.get("/health-check", (req, res)=> {
     sendRes(res, 200, true, "ok")
 })
 
-if (process.env.NODE_ENV !== 'production') {
-    const port = process.env.PORT || 8000;
-    app.listen(port, () => {
-        console.log(`Server is running on port ${port}`);
-    });
-}
+app.listen(8000, ()=> {
+    console.log("server is running on PORT 8000")
+})
 
-export default app;
+// if (process.env.NODE_ENV !== 'production') {
+//     const port = process.env.PORT || 8000;
+//     app.listen(port, () => {
+//         console.log(`Server is running on port ${port}`);
+//     });
+// }
+
+// export default app;

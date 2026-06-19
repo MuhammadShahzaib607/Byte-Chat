@@ -33,7 +33,7 @@ export default function HeroSection() {
         
         <div className="mt-10 flex items-center justify-center">
           <Link 
-            href="/signup" 
+            href="/create-bot" 
             className="group relative flex items-center gap-2 rounded-xl bg-zinc-100 px-7 py-3.5 text-[13.5px] font-semibold text-zinc-950 transition-all hover:bg-white active:scale-[0.98] shadow-lg shadow-black/20"
           >
             Create Your Agent

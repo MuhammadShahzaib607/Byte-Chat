@@ -2,4 +2,5 @@
 2. text wagera ka color bhi aisa rkhna k like merge na hoo bg color k saath like visible hoo 
 3. normal si UI nh banana kuch alag si banao like modern bhi banao but aisa bhi na lagey k ai se banwai hai bilkul simple si nh banana
 4. text ko minimize rkhna na zyada chhota na bht zyada bara bilkul normal or professional
-5. UI bhut outclass, professional, modern, clean and fully pixel perfect responsive honi chahiye for every device bhut hi zabardast banana UI bhut zabardast
+5. UI bhut outclass, professional, modern, clean and fully pixel perfect responsive honi chahiye for every device bhut hi zabardast banana UI bhut zabardast 
+6. background wohi checkerbox wala ho jese baki pages ka hai exact same and also layout bhut hi outclass or acha banana shrink na karey collapse na karey and that's it bas UI bhut achi banana theme ko maintain karte hue

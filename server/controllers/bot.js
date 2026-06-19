@@ -35,7 +35,6 @@ export const updateBotStatus = async (req, res) => {
     const { id: botId } = req.params;
     const { isActive } = req.body;
     const authenticatedUserId = req.user.id;
-    console.log(isActive)
 
     if (isActive === undefined) {
       return sendRes(res, 400, false, "isActive field is required in request body.");
@@ -90,6 +89,33 @@ export const editBotData = async (req, res) => {
     return sendRes(res, 500, false, error.message);
   }
 };
+
+export const getAllActiveBots = async (req, res) => {
+    try {
+        const [activeBots, totalBots] = await Promise.all([
+          Bot.find({ 
+            isActive: true 
+        }).select('createdAt businessName phoneNumber _id'),
+          Bot.countDocuments({isActive: true}),
+        ])
+
+        res.status(200).json({
+            success: true,
+            message: "Active bots fetched successfully",
+            data: {
+              activeBots,
+              totalBots
+            }
+        });
+
+    } catch (error) {
+        console.error("Error fetching active bots:", error);
+        res.status(500).json({
+            success: false,
+            message: "Internal server error"
+        });
+    }
+}
 
 export const getUserBots = async (req, res) => {
   try {
