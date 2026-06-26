@@ -1,12 +1,12 @@
-"use client"
+import { useParams } from "next/navigation";
 
 const BotChatPage = ()=> {
-
-return (
-    <>
-    Bot
-    </>
-)
+    const {slug} = useParams()
+    return (
+        <>
+        Bot Page
+        </>
+    )
 }
 
 export default BotChatPage;
