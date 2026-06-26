@@ -8,7 +8,7 @@ import {
   FiEdit2, FiPower, FiPlus, FiCpu, FiSmartphone, 
   FiMessageCircle, FiActivity, FiShield, FiZap, FiBox, FiCheckCircle 
 } from "react-icons/fi";
-import CustomAlert from "../../../components/CustomAlert";
+import CustomAlert from "../../../components/customAlert";
 import Link from "next/link";
 
 export default function MyBots() {

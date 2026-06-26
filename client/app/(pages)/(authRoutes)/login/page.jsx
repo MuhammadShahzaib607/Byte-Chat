@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMail, FiLock, FiEye, FiEyeOff } from "react-icons/fi";
-import CustomAlert from "../../../components/CustomAlert";
+import CustomAlert from "../../../components/customAlert"
 
 export default function Login() {
   const router = useRouter();
