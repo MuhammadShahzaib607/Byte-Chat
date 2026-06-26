@@ -17,7 +17,7 @@ export const getBotDetails = async (req, res) => {
       return sendRes(res, 400, false, "Bot ID is required.");
     }
 
-    const bot = await Bot.findById(botId).select("-systemPrompt");
+    const bot = await Bot.findById(botId);
     
     if (!bot) {
       return sendRes(res, 404, false, "Bot not found.");
@@ -122,7 +122,7 @@ export const getUserBots = async (req, res) => {
     const authenticatedUserId = req.user.id;
 
     const [bots, totalBots, activeBots, inActiveBots] = await Promise.all([
-        Bot.find({ userId: authenticatedUserId }),
+        Bot.find({ userId: authenticatedUserId }).sort({createdAt: -1}),
         Bot.countDocuments({ userId: authenticatedUserId }),
         Bot.countDocuments({ isActive: true }),
         Bot.countDocuments({ isActive: false }),
@@ -311,3 +311,23 @@ Strict Behavioral Boundaries & Best Practices:
   }
 };
 
+export const getBotBySlug = async (req, res) => {
+  try {
+    const { slug } = req.params;
+
+    if (!slug) {
+      return sendRes(res, 400, false, "Slug is required");
+    }
+
+    const bot = await Bot.findOne({ slug: slug });
+
+    if (!bot) {
+      return sendRes(res, 404, false, "Bot not found with this slug");
+    }
+
+    return sendRes(res, 200, true, "Bot fetched successfully", { bot });
+    
+  } catch (error) {
+    return sendRes(res, 500, false, "Internal Server Error", error.message);
+  }
+};

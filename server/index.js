@@ -5,6 +5,7 @@ import helmet from "helmet"
 import mongoose from "mongoose"
 import authRoutes from "./routes/auth.js"
 import botRoutes from "./routes/bot.js"
+import chatRoutes from "./routes/chat.js"
 import cookieParser from "cookie-parser"
 import { sendRes } from "./utils/responseHandler.js"
 
@@ -29,6 +30,7 @@ connectDB();
 
 app.use("/api/user", authRoutes)
 app.use("/api/bot", botRoutes)
+app.use("/api/chat", chatRoutes)
 
 app.get("/", (req, res)=> {
     sendRes(res, 200, true, "API Hit Successfully")

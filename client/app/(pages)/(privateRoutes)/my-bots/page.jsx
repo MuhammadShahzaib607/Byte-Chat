@@ -9,6 +9,7 @@ import {
   FiMessageCircle, FiActivity, FiShield, FiZap, FiBox, FiCheckCircle 
 } from "react-icons/fi";
 import CustomAlert from "../../../components/CustomAlert";
+import Link from "next/link";
 
 export default function MyBots() {
   const [bots, setBots] = useState([]);
@@ -60,7 +61,7 @@ const formatDate = (dateString) => {
       const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/bot/user-bots`, {
         headers: { Authorization: token }
       });
-      console.log(res.data.data.bots)
+      // console.log(res.data.data.bots)
       setMeta(res.data.data.meta)
       setBots(res.data.data.bots || []);
     } catch (e) {
@@ -184,17 +185,20 @@ const formatDate = (dateString) => {
   </div>
 
   <div className="flex gap-2">
-    <button onClick={() => toggleStatus(bot._id, bot.isActive)} className={`flex-1 py-2.5 rounded-xl text-[11px] font-bold flex items-center justify-center gap-2 transition-all ${!bot.isActive ? "bg-green-500/10 text-green-500 hover:bg-green-500/20" : "bg-zinc-800 text-zinc-400 hover:bg-zinc-700"}`}>
+    <button onClick={() => toggleStatus(bot._id, bot.isActive)} className={`flex-1 py-2.5 cursor-pointer rounded-xl text-[11px] font-bold flex items-center justify-center gap-2 transition-all ${!bot.isActive ? "bg-green-500/10 text-green-500 hover:bg-green-500/20" : "bg-zinc-800 text-zinc-400 hover:bg-zinc-700"}`}>
       <FiPower size={14} /> {bot.isActive ? "INACTIVE" : "ACTIVE"}
     </button>
-    <button onClick={() => router.push("/home")} className="px-3 py-2.5 rounded-xl bg-zinc-900 text-zinc-400 hover:text-white transition-all">
+    <button onClick={() => router.push(`/edit-bot/${bot._id}`)} className="px-3 py-2.5 rounded-xl bg-zinc-900 text-zinc-400 hover:text-white transition-all cursor-pointer">
       <FiEdit2 size={14} />
     </button>
   </div>
   
-  <button className="w-full mt-2 py-2.5 bg-white text-black rounded-xl text-[11px] font-bold hover:bg-zinc-200 transition-all flex items-center justify-center gap-2">
+  <Link 
+  href={`/bot/${bot.slug}`}
+  className="w-full mt-2 py-2.5 bg-white text-black rounded-xl text-[11px] font-bold hover:bg-zinc-200 transition-all flex items-center justify-center gap-2 cursor-pointer"
+  >
     <FiMessageCircle size={14} /> CHAT NOW
-  </button>
+  </Link>
 </motion.div>
               ))}
             </div>
