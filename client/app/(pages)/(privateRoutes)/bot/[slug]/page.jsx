@@ -150,18 +150,21 @@ if (!bot) {
         </main>
 
         <footer className="p-4 border-t border-zinc-800/50">
-          <div className="relative">
-            <input 
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
-              className="w-full bg-zinc-900 border border-zinc-800 rounded-2xl py-3 pl-5 pr-14 text-white text-sm outline-none focus:border-purple-500 transition-all md:w-[600px]"
-              placeholder="Ask anything..."
-            />
-            <button onClick={handleSendMessage} className="absolute right-2 top-1.5 p-1.5 bg-purple-600 rounded-xl text-white hover:bg-purple-500 transition-all">
-              <LuSend size={16} />
-            </button>
-          </div>
+          <div className="relative flex items-center w-full md:w-[600px] bg-zinc-900 border border-zinc-800 rounded-2xl p-1.5 focus-within:border-purple-500 transition-all">
+  <input 
+    value={input}
+    onChange={(e) => setInput(e.target.value)}
+    onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
+    className="flex-1 bg-transparent py-2 pl-3 pr-4 text-white text-sm outline-none placeholder:text-zinc-600"
+    placeholder="Ask anything..."
+  />
+  <button 
+    onClick={handleSendMessage} 
+    className="flex items-center justify-center p-2.5 bg-purple-600 rounded-xl text-white hover:bg-purple-500 transition-all shrink-0"
+  >
+    <LuSend size={16} />
+  </button>
+</div>
         </footer>
       </div>
     </div>
