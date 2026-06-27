@@ -20,7 +20,7 @@
 **ByteChat** transforms static customer support into dynamic, real-time AI conversations. Built for the modern enterprise, it allows businesses to deploy personalized AI agents that understand context, handle customer queries, and drive engagement—without writing a single line of code.
 
 ## 🛠️ Tech Stack Highlights
-* **Intelligence Layer:** OpenAI/LLM integration with custom system-prompt engineering.
+* **Intelligence Layer:** Groq/LLM integration with custom system-prompt engineering.
 * **Frontend:** Next.js App Router, Framer Motion (Fluid Animations), Tailwind CSS.
 * **Backend:** Node.js, Express, MongoDB (Secure Session/Chat Persistence).
 * **Security:** JWT-based stateless authentication with robust middleware guards.
