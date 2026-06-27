@@ -4,8 +4,10 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMessageCircle, FiCpu, FiClock, FiSmartphone, FiChevronRight } from "react-icons/fi";
+import { useRouter } from "next/navigation";
 
 export default function BotExplorer() {
+  const router = useRouter()
   const [data, setData] = useState({ activeBots: [], totalBots: 0 });
   const [loading, setLoading] = useState(true);
 
@@ -69,7 +71,9 @@ export default function BotExplorer() {
                 </div>
               </div>
 
-              <button className="flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-black font-bold text-[12px] hover:bg-zinc-200 transition-all cursor-pointer">
+              <button 
+              onClick={()=> {router.push(`/bot/${bot.slug}`)}}
+              className="flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-black font-bold text-[12px] hover:bg-zinc-200 transition-all cursor-pointer">
                 CHAT NOW <FiChevronRight size={16} />
               </button>
             </motion.div>
