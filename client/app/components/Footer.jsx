@@ -15,7 +15,7 @@ export default function Footer() {
         
         {/* Logo & Description */}
         <div className="col-span-1 md:col-span-1">
-          <Link href="/" className="flex items-center gap-2 mb-6">
+          <Link href="/home" className="flex items-center gap-2 mb-6">
             <Image src="/logo.png" alt="Logo" width={32} height={32} />
             <span className="text-white font-bold text-lg">ByteChat</span>
           </Link>
