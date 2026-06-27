@@ -39,7 +39,7 @@ app.get("/", (req, res)=> {
 app.get("/health-check", (req, res)=> {
     sendRes(res, 200, true, "ok")
 })
-// comment for redeploy
+
 if (process.env.NODE_ENV !== 'production') {
     const port = process.env.PORT || 8000;
     app.listen(port, () => {

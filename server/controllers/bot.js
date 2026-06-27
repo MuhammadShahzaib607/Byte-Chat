@@ -95,7 +95,7 @@ export const getAllActiveBots = async (req, res) => {
         const [activeBots, totalBots] = await Promise.all([
           Bot.find({ 
             isActive: true 
-        }).select('createdAt businessName phoneNumber _id'),
+        }).select('createdAt businessName phoneNumber _id slug'),
           Bot.countDocuments({isActive: true}),
         ])
 
