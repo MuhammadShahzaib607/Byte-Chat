@@ -124,8 +124,8 @@ export const getUserBots = async (req, res) => {
     const [bots, totalBots, activeBots, inActiveBots] = await Promise.all([
         Bot.find({ userId: authenticatedUserId }).sort({createdAt: -1}),
         Bot.countDocuments({ userId: authenticatedUserId }),
-        Bot.countDocuments({ isActive: true }),
-        Bot.countDocuments({ isActive: false }),
+        Bot.countDocuments({ userId: authenticatedUserId, isActive: true }),
+        Bot.countDocuments({ userId: authenticatedUserId, isActive: false }),
     ])
 
     return sendRes(res, 200, true, "All user bots retrieved successfully.", {
